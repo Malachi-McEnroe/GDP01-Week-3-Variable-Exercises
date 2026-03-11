@@ -1,17 +1,22 @@
 #include <iostream>
+#include <string>
 #include <string.h>
 
 using std::cout;
 using std::endl;
 using std::cin;
+using std::string;
 
 int question5();
 int question6();
 int question7();
 int question8();
 int question9();
+int question9Alt();
 int question10();
+int question10Alt();
 int question11();
+int question11Alt();
 int question12();
 
 int main(int argc, const char* argv[])
@@ -22,9 +27,30 @@ int main(int argc, const char* argv[])
     else if (strcmp(argv[1], "6") == 0) { return question6(); }
     else if (strcmp(argv[1], "7") == 0) { return question7(); }
     else if (strcmp(argv[1], "8") == 0) { return question8(); }
-    else if (strcmp(argv[1], "9") == 0) { return question9(); }
-    else if (strcmp(argv[1], "10") == 0) { return question10(); }
-    else if (strcmp(argv[1], "11") == 0) { return question11(); }
+    else if (strcmp(argv[1], "9") == 0)
+    {
+        if (argc > 2)
+        {
+            if (strcmp(argv[2], "alt") == 0) { return question9Alt(); }
+        }
+        else { return question9(); }
+    }
+    else if (strcmp(argv[1], "10") == 0)
+    {
+        if (argc > 2)
+        {
+            if (strcmp(argv[2], "alt") == 0) { return question10Alt(); }
+        }
+        else { return question10(); }
+    }
+    else if (strcmp(argv[1], "11") == 0)
+    {
+        if (argc > 2)
+        {
+            if (strcmp(argv[2], "alt") == 0) { return question11Alt(); }
+        }
+        else { return question11(); }
+    }
     else if (strcmp(argv[1], "12") == 0) { return question12(); }
 
     return 0;
@@ -126,6 +152,30 @@ int question9()
     return 0;
 }
 
+int question9Alt()
+{
+    cout << "Alternative suggested programming\n" << endl;
+    
+    int num;
+    string state;
+
+    cout << "Enter a number: ";
+    cin >> num;
+
+    if (num % 2 == 0)
+    {
+        state = "even";
+    }
+    else
+    {
+        state = "odd";
+    }
+
+    cout << num << " is " << state << endl;
+
+    return 0;
+}
+
 int question10()
 {
     int age;
@@ -145,6 +195,30 @@ int question10()
     return 0;
 }
 
+int question10Alt()
+{
+    cout << "Alternative suggested programming\n" << endl;
+
+    int age;
+    string eligibleState;
+
+    cout << "Enter your age: ";
+    cin >> age;
+
+    if (age >= 16)
+    {
+        eligibleState = "eligible";
+    }
+    else
+    {
+        eligibleState = "not eligible";
+    }
+
+    cout << "You are " << eligibleState << " to drive" << endl;
+
+    return 0;
+}
+
 int question11()
 {
     int year;
@@ -158,9 +232,33 @@ int question11()
     }
     else
     {
-        cout << year << " is not a leap year" << endl;
+        cout << year << " is a regular year" << endl;
     }
 
+    return 0;
+}
+
+int question11Alt()
+{
+    cout << "Alternative suggested programming\n" << endl;
+
+    int year;
+    string yearState;
+
+    cout << "Enter year: ";
+    cin >> year;
+
+    if (year % 4 == 0)
+    {
+        yearState = "leap";
+    }
+    else
+    {
+        yearState = "regular";
+    }
+
+    cout << year << " is a " << yearState << " year" << endl;
+    
     return 0;
 }
 
